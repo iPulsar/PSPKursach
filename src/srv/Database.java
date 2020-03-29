@@ -11,15 +11,16 @@ import java.sql.*;
  */
 public class Database {
     protected static Connection con = null;
-    protected static String User = "pulsar";
-    protected static String Password = "password";
+    protected static String User = "root";
+    protected static String Password = "root";
+    protected static String dbname = "db";
     protected static Statement stmt = null;
     public static void DBConnect()
     {
         try{  
         Class.forName("org.mariadb.jdbc.Driver");  
         Database.con =DriverManager.getConnection(  
-        "jdbc:mariadb://192.168.211.8:3306/kursach","pulsar","password");  
+        "jdbc:mariadb://192.168.211.8:3306/"+dbname,User,Password);  
         //here sonoo is database name, root is username and password  
         Database.stmt=Database.con.createStatement();
         }catch(Exception e){ System.out.println(e);}  
